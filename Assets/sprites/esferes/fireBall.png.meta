@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: 66c24f6d6fd6f724880bdf7f2f00875b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2933343435230526154
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_0
+  - first:
+      213: -6267114495884430414
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_1
+  - first:
+      213: -5237810726332478128
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_2
+  - first:
+      213: -5448000303197544357
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_3
+  - first:
+      213: 8042307423927425523
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_4
+  - first:
+      213: -361532693002828311
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_5
+  - first:
+      213: 2828049708800192692
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_6
+  - first:
+      213: 4387204361079703572
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_7
+  - first:
+      213: -4140992138824971029
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_8
+  - first:
+      213: 7351934584355723288
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_9
+  - first:
+      213: -8076168384172010325
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_10
+  - first:
+      213: 192621906011027546
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_11
+  - first:
+      213: -8649852720130238005
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_12
+  - first:
+      213: 7824344290618373100
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_13
+  - first:
+      213: 2521712064485416632
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_14
+  - first:
+      213: -7115564742786949162
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_15
+  - first:
+      213: -8598015333964260861
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_16
+  - first:
+      213: 7763615251941844074
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_17
+  - first:
+      213: 6972411138178280836
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_18
+  - first:
+      213: -6618078140419642575
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_19
+  - first:
+      213: -3424856294773917275
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_20
+  - first:
+      213: -2003294328840126072
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_21
+  - first:
+      213: 5020279570587052584
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_22
+  - first:
+      213: -1044612423839842696
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_23
+  - first:
+      213: -8945964653154480273
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_24
+  - first:
+      213: 6138732920356473937
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_25
+  - first:
+      213: -7081464353647059377
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_26
+  - first:
+      213: 3829038461677993796
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_27
+  - first:
+      213: 5607331270483228936
+    second: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_0
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 92
+        width: 137
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6354cdaefabaa47d0800000000000000
+      internalID: -2933343435230526154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_1
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 202
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b37b12129cb609a0800000000000000
+      internalID: -6267114495884430414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_2
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 79
+        width: 141
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05dc83045ee8f47b0800000000000000
+      internalID: -5237810726332478128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_3
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 76
+        width: 152
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b50a0b7c690d464b0800000000000000
+      internalID: -5448000303197544357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_4
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 196
+        width: 36
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f95ea9fdf30c9f60800000000000000
+      internalID: 8042307423927425523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_5
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 114
+        width: 86
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e540e26ee39bfaf0800000000000000
+      internalID: -361532693002828311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_6
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 202
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b0be2cf9304f3720800000000000000
+      internalID: 2828049708800192692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_7
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 158
+        width: 100
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 418433b3f1b72ec30800000000000000
+      internalID: 4387204361079703572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_8
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 205
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bec07a3f69d3886c0800000000000000
+      internalID: -4140992138824971029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_9
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 87
+        width: 116
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8189e606d81570660800000000000000
+      internalID: 7351934584355723288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_10
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 190
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba4df2bd4afabef80800000000000000
+      internalID: -8076168384172010325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_11
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 107
+        width: 71
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a58febb5a945ca200800000000000000
+      internalID: 192621906011027546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_12
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 170
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc9d039a7cc85f780800000000000000
+      internalID: -8649852720130238005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_13
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 158
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce3f9aa5da7a59c60800000000000000
+      internalID: 7824344290618373100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_14
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 170
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be587513cbeef220800000000000000
+      internalID: 2521712064485416632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_15
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 161
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dfd3e9f09f604d90800000000000000
+      internalID: -7115564742786949162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_16
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 160
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30ad2b5ab96bda880800000000000000
+      internalID: -8598015333964260861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_17
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 131
+        width: 17
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a646cc030f6edbb60800000000000000
+      internalID: 7763615251941844074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_18
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 110
+        width: 53
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48de71f1dfaf2c060800000000000000
+      internalID: 6972411138178280836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_19
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 131
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13b6280defcd724a0800000000000000
+      internalID: -6618078140419642575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_20
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 113
+        width: 35
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a97d3778577870d0800000000000000
+      internalID: -3424856294773917275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_21
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 125
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8810eecfb6ed234e0800000000000000
+      internalID: -2003294328840126072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_22
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 130
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82aedfdbbad9ba540800000000000000
+      internalID: 5020279570587052584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_23
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 112
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87ef01df88ac081f0800000000000000
+      internalID: -1044612423839842696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_24
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 91
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6fc683bb8c89d380800000000000000
+      internalID: -8945964653154480273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_25
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 97
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15c08d01119213550800000000000000
+      internalID: 6138732920356473937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_26
+      rect:
+        serializedVersion: 2
+        x: 1317
+        y: 108
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4e964780b599bd90800000000000000
+      internalID: -7081464353647059377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_27
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 98
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44fff9b913a732530800000000000000
+      internalID: 3829038461677993796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_28
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 90
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 809b713e41e31dd40800000000000000
+      internalID: 5607331270483228936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_0: -2933343435230526154
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_1: -6267114495884430414
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_10: -8076168384172010325
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_11: 192621906011027546
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_12: -8649852720130238005
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_13: 7824344290618373100
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_14: 2521712064485416632
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_15: -7115564742786949162
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_16: -8598015333964260861
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_17: 7763615251941844074
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_18: 6972411138178280836
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_19: -6618078140419642575
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_2: -5237810726332478128
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_20: -3424856294773917275
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_21: -2003294328840126072
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_22: 5020279570587052584
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_23: -1044612423839842696
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_24: -8945964653154480273
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_25: 6138732920356473937
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_26: -7081464353647059377
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_27: 3829038461677993796
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_28: 5607331270483228936
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_3: -5448000303197544357
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_4: 8042307423927425523
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_5: -361532693002828311
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_6: 2828049708800192692
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_7: 4387204361079703572
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_8: -4140992138824971029
+      vecteezy_animation-sprite-sheet-of-bomb-explosion-sequence_13224424_9: 7351934584355723288
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -190,5 +190,12 @@ public class PlayerController : MonoBehaviour
             Gizmos.DrawLine(new Vector3(currentCenterlineX, mapLowerBoundY, 0), new Vector3(currentCenterlineX, mapUpperBoundY, 0));
         }
     }
+    public void ExitGame() 
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+            {
+               
+            }
+    }
 }
 

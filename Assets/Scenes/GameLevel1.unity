@@ -11918,7 +11918,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Vida j2:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12386,7 +12386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: new text
+  m_text: 'vida j1:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12702,7 +12702,7 @@ GameObject:
   - component: {fileID: 645450239}
   m_Layer: 0
   m_Name: player_1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12771,7 +12771,7 @@ Transform:
   m_GameObject: {fileID: 645450233}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.63, y: -2.97, z: 0}
+  m_LocalPosition: {x: -6.77, y: -0.92, z: 0}
   m_LocalScale: {x: 0.17260695, y: 0.2803, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12791,14 +12791,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLeftPlayer: 1
+  maxLife: 3
+  currentLife: 0
+  baseMoveSpeed: 5
+  playerRunSpeedMultiplier: 1.5
+  slowFactor: 0.5
   centerlineMarker: {fileID: 1336445851}
   mapRightBoundX: 0
   mapLeftBoundX: -8.29
   mapUpperBoundY: 4.3
   mapLowerBoundY: -4.2
   maxMoveDistance: 5
-  _playerSpeed: 6
-  _playerRunSpeed: 10
   hitRange: 1.5
   hitForce: 10
   hitPoint: {fileID: 1851874764}
@@ -24787,10 +24790,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94e0c15d837fc543999ef6d6f3a3854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentBallType: 1
   initialSpeed: 5
+  normalBallSprite: {fileID: -1223887124686007837, guid: 864ab97420303a84690143c033255c2c, type: 3}
+  fireBallSprite: {fileID: -5448000303197544357, guid: 66c24f6d6fd6f724880bdf7f2f00875b, type: 3}
+  iceBallSprite: {fileID: -8792758961485495233, guid: 261c92007e3389b44a407064fe5da249, type: 3}
   centerlineMarker: {fileID: 1336445851}
   resetLaunchSpeed: 7
   resetDelay: 1
+  baseDamage: 1
+  currentDamage: 0
+  powerUpDuration: 10
+--- !u!1 &1304274875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1304274877}
+  - component: {fileID: 1304274876}
+  m_Layer: 0
+  m_Name: PowerUpSpawnerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1304274876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304274875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58655113335bd6e4683ae62b2593c318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePowerUpPrefab: {fileID: 8603439758394194354, guid: f518caccbfe1b9447b7bca4689d842e1, type: 3}
+  icePowerUpPrefab: {fileID: 3619987622983847294, guid: 513baeeaa7fecde4f91c8c22b6859c8d, type: 3}
+  spawnPositions:
+  - {x: -2.86, y: 2.86}
+  spawnInterval: 5
+--- !u!4 &1304274877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304274875}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.4770384, y: 0.070891045, z: -0.07180066}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1317573494
 GameObject:
   m_ObjectHideFlags: 0
@@ -25040,7 +25099,7 @@ GameObject:
   - component: {fileID: 1684313854}
   - component: {fileID: 1684313856}
   m_Layer: 0
-  m_Name: npc
+  m_Name: player_2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25110,7 +25169,7 @@ Transform:
   m_GameObject: {fileID: 1684313850}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.99997914, z: -0, w: -0.0064709946}
-  m_LocalPosition: {x: 7.97, y: -0.11, z: -0.12}
+  m_LocalPosition: {x: 4.66, y: 2.72, z: -0.07}
   m_LocalScale: {x: 0.17529155, y: 0.2396881, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25197,8 +25256,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ffd72202fdf264bb0d7e3699d2efd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  maxLife: 3
+  currentLife: 0
+  baseMoveSpeed: 4
   runSpeedMultiplier: 1.5
+  slowFactor: 0.5
   centerlineMarker: {fileID: 1336445851}
   mapRightBoundX: 8.43
   mapLeftBoundX: 0.06
@@ -25560,12 +25622,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6344b9ebe51c1142a432d27ffba9b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaJogador1: 3
-  vidaJogador2: 3
+  vidaJogador1: 5
+  vidaJogador2: 5
   textoVidaJogador1: {fileID: 518716827}
   textoVidaJogador2: {fileID: 250982072}
-  ballController: {fileID: 1289189208}
+  ballController: {fileID: 0}
   centerlineMarker: {fileID: 1336445851}
+  player1Controller: {fileID: 645450236}
+  player2Controller: {fileID: 1684313855}
+  slowEffectDuration: 5
   gameOverSceneName: GameOverScene
   menuPrincipalSceneName: GUI/Assets/Menu
   textoMensagemVitoria: {fileID: 411316498}
@@ -25870,3 +25935,4 @@ SceneRoots:
   - {fileID: 2045781806}
   - {fileID: 2088495756}
   - {fileID: 779579375}
+  - {fileID: 1304274877}

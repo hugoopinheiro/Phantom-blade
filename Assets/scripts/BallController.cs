@@ -1,5 +1,6 @@
 using UnityEngine;
-using System; // Necessário para 'Action'
+using System;
+using System.Runtime.CompilerServices; // Necessário para 'Action'
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class BallController : MonoBehaviour
@@ -8,23 +9,60 @@ public class BallController : MonoBehaviour
     // O string que passamos será a tag do objeto que a bola colidiu ("Goal")
     // e o float será a posição X da bola no momento do gol, para saber o lado.
     public event Action<string, float> OnGoalScored; // Evento com tag e posição X
+    public enum BallType
+    {
+        NORMAL,
+        FIRE,
+        ICE
+    }
+    public BallType currentBallType = BallType.NORMAL;
 
     public float initialSpeed = 0f; // A bola começa parada, só se move com o ataque
     private Rigidbody2D rb;
     private Vector2 startPosition; // Posição inicial da bola (onde ela spawna)
 
+    [Header("Configurações da Bola")]
+    [SerializeField] private Vector3 normalBallScale = new Vector3(1f, 1f, 1f); // Escala normal da bola
+    [SerializeField] private Vector3 fireBallScale = new Vector3(0.7f, 0.7f, 1f); // Escala para bola de fogo (menor)
+    [SerializeField] private Vector3 iceBallScale = new Vector3(0.7f, 0.7f, 1f);  // Escala para bola de gelo (menor)
+
+    private Transform ballTransform;
+
+    [SerializeField] private Sprite normalBallSprite;
+    [SerializeField] private Sprite fireBallSprite;
+    [SerializeField] private Sprite iceBallSprite;
+    private SpriteRenderer spriteRenderer;
+
     [SerializeField] private Transform centerlineMarker;
     [SerializeField] private float resetLaunchSpeed = 7f; // Velocidade com que a bola é lançada após um reset
     [SerializeField] private float resetDelay = 1.0f; // Tempo de espera antes de relançar a bola após o reset
 
-    private bool isBallInPlay = false;
+    public int baseDamage = 1;
+    public int currentDamage;
 
+    [SerializeField] private float powerUpDuration = 10f;
+    private float powerUpTimer = 0f;
+
+
+    private bool isBallInPlay = false;
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        ballTransform = transform;
+
+        if (spriteRenderer == null)
+        {
+            Debug.Log("BallController precisa de um SpriteRenderer ");
+        }
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         startPosition = transform.position;
         rb.linearVelocity = Vector2.zero; // Garante que a bola não se movi no início
         rb.angularVelocity = 0f; // Zera a rotação também, por segurança
+        currentDamage = baseDamage; // Inicializa o dano atual com o dano base
+        UpdateBallSprite();
 
         if (centerlineMarker == null)
         {
@@ -37,6 +75,61 @@ public class BallController : MonoBehaviour
             {
                 Debug.LogError("Centerline Marker (MapCenterline GameObject) não encontrado na cena! A bola não saberá para onde voltar.");
             }
+        }
+    }
+    private void Update()
+    {
+        // NOVO: Lógica do timer do power-up
+        if (currentBallType != BallType.NORMAL)
+        {
+            powerUpTimer -= Time.deltaTime;
+            if (powerUpTimer <= 0)
+            {
+                SetBallType(BallType.NORMAL); // Retorna ao normal quando o tempo acaba
+            }
+        }
+    }
+    public void SetBallType(BallType newType)
+    {
+        currentBallType = newType;
+        currentDamage = baseDamage; // Reseta o dano para o base antes de aplicar o novo
+        powerUpTimer = powerUpDuration; // Reinicia o timer do power-up
+
+        switch (currentBallType)
+        {
+            case BallType.NORMAL:
+                currentDamage = baseDamage;
+                ballTransform.localScale = normalBallScale; // Volta para escala normal
+                break;
+            case BallType.FIRE:
+                currentDamage = 2;
+                ballTransform.localScale = fireBallScale; // Aplica escala da bola de fogo
+                break;
+            case BallType.ICE:
+                currentDamage = baseDamage;
+                ballTransform.localScale = iceBallScale; // Aplica escala da bola de gelo
+                break;
+        }
+        UpdateBallSprite(); // Atualiza a aparência da bola
+        Debug.Log($"Tipo da bola alterado para: {currentBallType}. Dano atual: {currentDamage}");
+    }
+
+    // NOVO: Método para atualizar a sprite da bola
+    private void UpdateBallSprite()
+    {
+        if (spriteRenderer == null) return;
+
+        switch (currentBallType)
+        {
+            case BallType.NORMAL:
+                spriteRenderer.sprite = normalBallSprite;
+                break;
+            case BallType.FIRE:
+                spriteRenderer.sprite = fireBallSprite;
+                break;
+            case BallType.ICE:
+                spriteRenderer.sprite = iceBallSprite;
+                break;
         }
     }
 

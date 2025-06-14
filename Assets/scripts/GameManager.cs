@@ -1,12 +1,12 @@
 using UnityEngine;
-using TMPro; // Para usar TextMeshProUGUI (se você estiver usando)
+using TMPro; // Para usar TextMeshProUGUI
 using UnityEngine.SceneManagement; // Para carregar cenas de game over, etc.
 
 public class GameManager : MonoBehaviour
 {
     // Vidas dos jogadores
-    public int vidaJogador1 = 3; // Jogador da Esquerda (PlayerController)
-    public int vidaJogador2 = 3; // Jogador da Direita (NPC Controller)
+    public int vidaJogador1 = 5; // Jogador da Esquerda (PlayerController)
+    public int vidaJogador2 = 5; // Jogador da Direita (NPC Controller)
 
     // Referências para TextMeshProUGUI para exibir a vida na UI
     [Header("UI Vidas")]
@@ -16,11 +16,24 @@ public class GameManager : MonoBehaviour
     // Referência ao script da bola
     [Header("Referências de Cena")]
     public BallController ballController;
-    public Transform centerlineMarker; // Para determinar o meio do campo (já estava public)
+    public Transform centerlineMarker; // Para determinar o meio do campo
+
+    // NOVO: Referências aos PlayerControllers para aplicar o efeito de lentidão
+    [Header("Referências dos Jogadores")]
+    [SerializeField] private PlayerController player1Controller; // Arraste o Player 1 aqui no Inspector
+    [SerializeField] private NpcController player2Controller; // Arraste o Player 2 aqui no Inspector
+
+    // NOVO: Duração do efeito de lentidão para a bola de gelo
+    [Header("Configurações de Power-up")]
+    [SerializeField] private float slowEffectDuration = 5f; // Duração em segundos do efeito de lentidão
 
     [Header("Nomes de Cenas")]
-    [SerializeField] private string gameOverSceneName = "GameOverScene"; // Cena de Game Over
-    [SerializeField] private string menuPrincipalSceneName = "GUI/Assets/Menu"; // Cena do Menu Principal
+    [SerializeField] private string gameOverSceneName = "GameOverScene";
+    [SerializeField] private string menuPrincipalSceneName = "GUI/Assets/Menu";
+
+    // NOVO: Referência para o texto de mensagem de vitória (se ainda não estiver público)
+    public TextMeshProUGUI textoMensagemVitoria;
+
 
     void Start()
     {
@@ -35,9 +48,29 @@ public class GameManager : MonoBehaviour
             if (ballController == null)
             {
                 Debug.LogError("BallController não encontrado na cena! O GameManager não poderá detectar gols.");
-                return; // Impede que o restante do Start execute sem a bola
+                return;
             }
         }
+
+        // NOVO: Tenta encontrar os PlayerControllers se não forem atribuídos
+        if (player1Controller == null)
+        {
+            // Assumindo que Player1 tem a tag "Player1" ou um componente PlayerController
+            // Melhor usar FindObjectsOfType ou Tags se eles não forem filhos diretos deste GameManager
+            GameObject p1Obj = GameObject.FindWithTag("Player1"); // Ou use o nome do GameObject do Player 1
+            if (p1Obj != null) player1Controller = p1Obj.GetComponent<PlayerController>();
+        }
+        if (player2Controller == null)
+        {
+            GameObject p2Obj = GameObject.FindWithTag("Player2"); // Ou use o nome do GameObject do Player 2 (NPC)
+            if (p2Obj != null) player2Controller = p2Obj.GetComponent<NpcController>();
+        }
+
+        if (player1Controller == null || player2Controller == null)
+        {
+            Debug.LogError("Um ou ambos os PlayerControllers não foram encontrados. Certifique-se de que estão atribuídos ou que suas tags/nomes estão corretos.");
+        }
+
 
         // Encontra o Centerline Marker se não for atribuído via Inspector
         if (centerlineMarker == null)
@@ -64,27 +97,44 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             Debug.Log("Tecla 'M' pressionada. Voltando para o Menu Principal.");
-            VoltarParaMenuPrincipal(); // Chama o método para voltar ao menu
+            VoltarParaMenuPrincipal();
         }
     }
 
     // Método que é chamado quando o evento OnGoalScored é disparado
     private void HandleGoalScored(string goalTag, float ballXPosition)
     {
-        // NOVO: Lógica CORRETA de perda de vida
-        // Se a bola passou pela 'GoalLeft' (X NEGATIVO em relação ao centro), o JOGADOR 1 perde vida
-        // Porque o Jogador 1 defende a ESQUERDA.
+        // NOVO: Obtenha o dano atual da bola do BallController
+        int damageToDeal = ballController.currentDamage;
+        // NOVO: Verifique o tipo da bola para aplicar efeitos adicionais
+        BallController.BallType currentBallType = ballController.currentBallType;
+
+        // Determine qual jogador perdeu vida e aplique os efeitos
         if (centerlineMarker != null && ballXPosition < centerlineMarker.position.x)
         {
-            vidaJogador1--; // Gol na área do Jogador 1 (esquerda)
-            Debug.Log("Gol do Jogador 2! Jogador 1 perdeu vida. Vida restante: " + vidaJogador1);
+            // Gol na área do Jogador 1 (esquerda)
+            vidaJogador1 -= damageToDeal; // Usa o dano dinâmico da bola
+            Debug.Log($"Gol do Jogador 2! Jogador 1 perdeu {damageToDeal} de vida. Vida restante: {vidaJogador1}");
+
+            // NOVO: Aplica o efeito de lentidão se a bola for de gelo
+            if (currentBallType == BallController.BallType.ICE && player1Controller != null)
+            {
+                player1Controller.ApplySlowEffect(slowEffectDuration);
+                Debug.Log("Jogador 1 foi atingido por uma bola de gelo e está mais lento!");
+            }
         }
-        // Se a bola passou pela 'GoalRight' (X POSITIVO em relação ao centro), o JOGADOR 2 perde vida
-        // Porque o Jogador 2 defende a DIREITA.
         else if (centerlineMarker != null && ballXPosition > centerlineMarker.position.x)
         {
-            vidaJogador2--; // Gol na área do Jogador 2 (direita)
-            Debug.Log("Gol do Jogador 1! Jogador 2 perdeu vida. Vida restante: " + vidaJogador2);
+            // Gol na área do Jogador 2 (direita)
+            vidaJogador2 -= damageToDeal; // Usa o dano dinâmico da bola
+            Debug.Log($"Gol do Jogador 1! Jogador 2 perdeu {damageToDeal} de vida. Vida restante: {vidaJogador2}");
+
+            // NOVO: Aplica o efeito de lentidão se a bola for de gelo
+            if (currentBallType == BallController.BallType.ICE && player2Controller != null)
+            {
+                player2Controller.ApplySlowEffect(slowEffectDuration);
+                Debug.Log("Jogador 2 foi atingido por uma bola de gelo e está mais lento!");
+            }
         }
         else
         {
@@ -121,8 +171,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public TextMeshProUGUI textoMensagemVitoria;
-
     void ExibirMensagemVitoria(string mensagem)
     {
         if (textoMensagemVitoria != null)
@@ -150,5 +198,4 @@ public class GameManager : MonoBehaviour
             ballController.OnGoalScored -= HandleGoalScored;
         }
     }
-
 }

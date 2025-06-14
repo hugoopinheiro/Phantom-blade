@@ -4,16 +4,27 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private bool isLeftPlayer = true;
 
-    // **NOVO: Referência para o GameObject da linha central**
+    // NOVO: Vida do jogador
+    public int maxLife = 3;
+    public int currentLife;
+
+    // NOVO: Velocidade base e velocidade atual
+    public float baseMoveSpeed = 5f; // Antigo _playerSpeed, agora é a velocidade base
+    private float currentMoveSpeed;   // NOVO: Esta será a velocidade usada no FixedUpdate
+    public float playerRunSpeedMultiplier = 1.5f; // Multiplicador para a corrida, se houver
+
+    // NOVO: Para o efeito de lentidão
+    private float slowEffectTimer = 0f;
+    [SerializeField] private float slowFactor = 0.5f; // 50% da velocidade normal
+
     [SerializeField] private Transform centerlineMarker;
 
-    // Os limites do mapa (bordas externas) ainda podem ser fixos ou de outro objeto
+    // Os limites do mapa (bordas externas)
     [SerializeField] private float mapRightBoundX = 19f;
     [SerializeField] private float mapLeftBoundX = 0f;
     [SerializeField] private float mapUpperBoundY = 10f;
     [SerializeField] private float mapLowerBoundY = 0f;
 
-    // Variável interna para a coordenada X da linha central
     private float mapCenterlineX;
 
     private BallController currentBall;
@@ -22,9 +33,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 initialPosition;
 
     private Rigidbody2D _playerRigidBody2d;
-    public float _playerSpeed;
-    private float _playerInitialSpeed;
-    public float _playerRunSpeed;
     private bool _isAttack = false;
     private Vector2 _playerDirection;
     private Animator _playerAnimator;
@@ -39,7 +47,9 @@ public class PlayerController : MonoBehaviour
 
         _playerRigidBody2d = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
-        _playerInitialSpeed = _playerSpeed;
+
+        currentLife = maxLife; // Inicializa a vida
+        currentMoveSpeed = baseMoveSpeed; // Inicializa a velocidade atual com a base
 
         currentBall = FindFirstObjectByType<BallController>();
         if (currentBall == null)
@@ -47,7 +57,6 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("BallController não encontrado na cena! Certifique-se de que a bola tem o script BallController.");
         }
 
-        // **Defina a coordenada X da linha central a partir do GameObject**
         if (centerlineMarker != null)
         {
             mapCenterlineX = centerlineMarker.position.x;
@@ -55,10 +64,9 @@ public class PlayerController : MonoBehaviour
         else
         {
             Debug.LogError("Centerline Marker não foi atribuído no Inspector do PlayerController! Usando valor padrão.");
-            mapCenterlineX = (mapLeftBoundX + mapRightBoundX) / 2f; // Valor padrão
+            mapCenterlineX = (mapLeftBoundX + mapRightBoundX) / 2f;
         }
 
-        // Opcional: Garante que o jogador comece na sua área. 
         if (isLeftPlayer && transform.position.x > mapCenterlineX)
         {
             transform.position = new Vector2(mapCenterlineX - 0.1f, transform.position.y);
@@ -71,6 +79,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // NOVO: Lógica do timer do efeito de lentidão
+        if (slowEffectTimer > 0)
+        {
+            slowEffectTimer -= Time.deltaTime;
+            if (slowEffectTimer <= 0)
+            {
+                currentMoveSpeed = baseMoveSpeed; // Reseta a velocidade para a base
+                Debug.Log($"{name} voltou à velocidade normal.");
+            }
+        }
+
         _playerDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         if (_playerAnimator != null)
@@ -81,13 +100,16 @@ public class PlayerController : MonoBehaviour
                 _playerAnimator.SetInteger("Movimento", _isAttack ? 2 : 0);
         }
 
-        speedRun();
+        // speedRun(); // Esta função precisa ser atualizada para usar 'currentMoveSpeed'
+        // Refatorada para usar a nova variável de velocidade:
+        HandleSpeedInput();
         OnAttack();
     }
 
     private void FixedUpdate()
     {
-        Vector2 newPosition = _playerRigidBody2d.position + _playerDirection * _playerSpeed * Time.fixedDeltaTime;
+        // Usa currentMoveSpeed aqui
+        Vector2 newPosition = _playerRigidBody2d.position + _playerDirection * currentMoveSpeed * Time.fixedDeltaTime;
 
         float currentMinX;
         float currentMaxX;
@@ -95,11 +117,11 @@ public class PlayerController : MonoBehaviour
         if (isLeftPlayer)
         {
             currentMinX = mapLeftBoundX;
-            currentMaxX = mapCenterlineX; // Limite é a linha central
+            currentMaxX = mapCenterlineX;
         }
         else
         {
-            currentMinX = mapCenterlineX; // Começa na linha central
+            currentMinX = mapCenterlineX;
             currentMaxX = mapRightBoundX;
         }
 
@@ -109,12 +131,35 @@ public class PlayerController : MonoBehaviour
         _playerRigidBody2d.MovePosition(newPosition);
     }
 
-    void speedRun()
+    // Antiga speedRun renomeada e atualizada para usar currentMoveSpeed e baseMoveSpeed
+    void HandleSpeedInput()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
-            _playerSpeed = _playerRunSpeed;
+        {
+            // Aplica o multiplicador de corrida à velocidade base, mas só se não estiver lento
+            if (slowEffectTimer <= 0)
+            {
+                currentMoveSpeed = baseMoveSpeed * playerRunSpeedMultiplier;
+            }
+            else
+            {
+                // Se estiver lento, a corrida ainda pode ser um pouco mais rápida que a lentidão,
+                // mas não atinge a velocidade normal de corrida. Ajuste conforme o desejado.
+                currentMoveSpeed = (baseMoveSpeed * slowFactor) * 1.2f; // Exemplo: 20% mais rápido que a velocidade lenta
+            }
+        }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
-            _playerSpeed = _playerInitialSpeed;
+        {
+            // Retorna à velocidade base, mas ainda respeita o efeito de lentidão
+            if (slowEffectTimer <= 0)
+            {
+                currentMoveSpeed = baseMoveSpeed;
+            }
+            else
+            {
+                currentMoveSpeed = baseMoveSpeed * slowFactor;
+            }
+        }
     }
 
     void OnAttack()
@@ -122,24 +167,18 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             _isAttack = true;
-            _playerSpeed = 0;
+            currentMoveSpeed = 0; // Para o jogador durante o ataque
 
-
-            // Mas precisamos ter certeza que a bola está ao alcance para ser "atingida"
             if (currentBall != null)
             {
-                Collider2D[] hits = Physics2D.OverlapCircleAll(hitPoint.position, hitRange, LayerMask.GetMask("Ball")); // Opcional: Filtrar por Layer "Ball" para otimizar
+                Collider2D[] hits = Physics2D.OverlapCircleAll(hitPoint.position, hitRange, LayerMask.GetMask("Ball"));
                 foreach (var hit in hits)
                 {
                     if (hit.CompareTag("Ball"))
                     {
-                        // A bola está ao alcance e tem a tag "Ball"
-                        // Calcular a direção da bola a partir do jogador
                         Vector2 direction = (hit.transform.position - transform.position).normalized;
-
-                        // Chamar o método HitBall da bola para ela se mover
-                        currentBall.HitBall(direction, hitForce); // Usa o hitForce do PlayerController
-                        break; // Se encontrou e atingiu a bola, pode sair do loop
+                        currentBall.HitBall(direction, hitForce);
+                        break;
                     }
                 }
             }
@@ -148,8 +187,38 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.K))
         {
             _isAttack = false;
-            _playerSpeed = _playerInitialSpeed;
+            // Retorna a velocidade, respeitando o slow effect
+            if (slowEffectTimer <= 0)
+            {
+                currentMoveSpeed = baseMoveSpeed;
+            }
+            else
+            {
+                currentMoveSpeed = baseMoveSpeed * slowFactor;
+            }
         }
+    }
+
+    // NOVO MÉTODO: Para o GameManager aplicar dano
+    public void TakeDamage(int damageAmount)
+    {
+        currentLife -= damageAmount;
+        Debug.Log($"{name} levou {damageAmount} de dano! Vida restante: {currentLife}");
+
+        if (currentLife <= 0)
+        {
+            Debug.Log($"{name} foi derrotado!");
+            // Adicione aqui a lógica de fim de jogo ou desativação do jogador
+            gameObject.SetActive(false); // Exemplo: desativa o GameObject do jogador
+        }
+    }
+
+    // NOVO MÉTODO: Para o GameManager aplicar o efeito de lentidão
+    public void ApplySlowEffect(float duration)
+    {
+        slowEffectTimer = duration; // Define a duração do efeito
+        currentMoveSpeed = baseMoveSpeed * slowFactor; // Aplica o fator de lentidão
+        Debug.Log($"{name} foi lentificado! Nova velocidade: {currentMoveSpeed}");
     }
 
     void OnDrawGizmosSelected()
@@ -160,14 +229,12 @@ public class PlayerController : MonoBehaviour
             Gizmos.DrawWireSphere(hitPoint.position, hitRange);
         }
 
-        // Desenhar os limites para visualização no editor
-        // Certifique-se de que mapCenterlineX foi definido (ou use centerlineMarker.position.x diretamente)
         if (centerlineMarker != null)
         {
             Gizmos.color = Color.blue;
             float currentMinX;
             float currentMaxX;
-            float currentCenterlineX = centerlineMarker.position.x; // Use a posição atual do marker
+            float currentCenterlineX = centerlineMarker.position.x;
 
             if (isLeftPlayer)
             {
@@ -185,17 +252,8 @@ public class PlayerController : MonoBehaviour
 
             Gizmos.DrawWireCube((minBounds + maxBounds) / 2, maxBounds - minBounds);
 
-            // Desenhar a linha central também no Gizmos para visualização
-            Gizmos.color = Color.red; // Cor diferente para a linha central
+            Gizmos.color = Color.red;
             Gizmos.DrawLine(new Vector3(currentCenterlineX, mapLowerBoundY, 0), new Vector3(currentCenterlineX, mapUpperBoundY, 0));
         }
     }
-    public void ExitGame() 
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-            {
-               
-            }
-    }
 }
-
